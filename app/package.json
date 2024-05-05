@@ -10,6 +10,7 @@
     "dev": "remix vite:dev --port 3000",
     "build": "remix vite:build",
     "start": "remix-serve ./build/server/index.js",
+    "server": "go run httpserver/main.go",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "typecheck": "tsc"
   },
