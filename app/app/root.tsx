@@ -14,7 +14,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <h1 className="text-3xl font-bold underline">Hello world blahhhhh!</h1>
+        <h1 className="text-3xl font-bold underline">Hello world blahhhh!</h1>
         <Outlet />
         <Scripts />
       </body>

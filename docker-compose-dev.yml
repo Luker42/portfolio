@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: TestPassword!
+      MYSQL_USER: lreisch
+      MYSQL_PASSWORD: LreischPassword!
+    volumes:
+      - ~/data:/var/lib/mysql:rw
+    user: "1000:50"
+    ports:
+      - 33061:3306
+  
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  web:
+    build: 
+      context: './app'
+      dockerfile: 'Dockerfile.local'
+    ports:
+      - '3000:3000' #remix
+      - '3010:3010' #hmr
+    volumes:
+      - ./app/app:/usr/server/app/app:rw

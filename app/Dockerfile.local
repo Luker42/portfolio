@@ -1,0 +1,15 @@
+FROM node:21.7.1
+
+RUN useradd -ms /bin/sh -u 1001 app
+USER app
+
+WORKDIR /usr/server/app
+
+COPY ./package.json ./
+RUN yarn install
+
+COPY ./ .
+
+EXPOSE 3000
+
+CMD ["yarn","dev"]
