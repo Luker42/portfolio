@@ -17,7 +17,7 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8080:8080
+      - 8001:8001
   web:
     build: 
       context: './app'
@@ -27,3 +27,14 @@ services:
       - '3010:3010' #hmr
     volumes:
       - ./app/app:/usr/server/app/app:rw
+  
+  server:
+    build:
+      dockerfile: Dockerfile
+      context: ./server
+      target: dev
+    volumes:
+      - ./server:/opt/app/api
+    ports:
+      - 3001:3001
+      - 8090:8090
